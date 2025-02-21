@@ -40,4 +40,7 @@ jobs:
           python -m pip install --upgrade pip setuptools 'cython<3.0.0' wheel
           # install dependencies quietly
           python -m pip install -r requirements.txt
+      - name: Replace `/assets` with `assets`
+        run: |
+          find tanssi-mkdocs -type f -exec sed -i 's|/assets|assets|g' {} +
       - run: mkdocs gh-deploy --force --clean --site-dir ./site
