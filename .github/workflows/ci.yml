@@ -40,6 +40,10 @@ jobs:
           python -m pip install --upgrade pip setuptools 'cython<3.0.0' wheel
           # install dependencies quietly
           python -m pip install -r requirements.txt
+      - name: Update image paths in Markdown files
+        run: |
+          # Replace old image paths with new paths in Markdown files
+          find tanssi-docs -type f -name "*.md" -exec sed -i -e 's|](/|](/tanssi-mkdocs/|g' -e 's|href="/|href="/tanssi-mkdocs/|g' {} \;
       - name: Replace `/assets` with `assets`
         run: |
           find . -type f -exec sed -i 's|/assets|assets|g' {} +
