@@ -15,9 +15,10 @@ theme:
   name: material
   custom_dir: material-overrides
   favicon: /assets/images/tanssi-favicon.webp
-  logo: /assets/images/tanssi-logo-white.webp
+  logo: assets/images/tanssi-logo-white.webp
   icon:
     edit: material/github
+    logo: custom/tanssi-icon
   font:
     text: Inter
   features:
@@ -37,6 +38,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.keys
   - pymdownx.snippets:
       base_path: tanssi-docs/.snippets
@@ -55,6 +59,7 @@ validation:
   unrecognized_links: ignore
 exclude_docs: README.md
 plugins:
+  - social
   - search
   - awesome-pages
   - git-revision-date-localized:

@@ -2,3 +2,4 @@ tanssi-docs*
 venv
 .DS_Store
 site
+.cache
